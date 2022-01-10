@@ -1,0 +1,38 @@
+<div class="wrapper">
+    <div class="content_wrapper">
+        <div class="login_left">
+            <h2>Logo</h2>
+            <div class="login_left_inner">
+                <form class="login_form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                    <h5>Nice to see you again!</h5>
+                    <h6>Welcome Back!</h6>
+                    <div class="position-relative">
+                        <input type="text" formControlName="email" name="" id="" placeholder="Email ID or Phone Number">
+                        <div *ngIf="getControl.email.touched && getControl.email?.invalid" class="text-danger">
+                            <div *ngIf="getControl.email.errors?.required">Email is required.</div>
+                            <div *ngIf="getControl.email.errors?.email">Email seems invalid.</div>
+                        </div>
+                    </div>
+                    <div class="position-relative">
+                        <input type="password" placeholder="Password" formControlName="password">
+                        <div *ngIf="getControl.password?.touched && getControl.password?.invalid" class="text-danger">
+                            <div *ngIf="getControl.password.errors?.required">password is required.</div>
+                        </div>
+                    </div>
+                    <button class="custom_btn">Login</button>
+                </form>
+                <div class="other_option">
+                    <h6><span>or</span></h6>
+                </div>
+                <button class="social_login">Login with Google</button>
+                <div class="register">
+                    <h5>Have not met us before?</h5>
+                    <a [routerLink]="['/sign-up']" routerLinkActive="router-link-active">Register</a>
+                </div>
+            </div>
+        </div>
+        <div class="login_right">
+            <img src="../../../../../assets/images/login.png.png" width="720" height="1024" alt="login image">
+        </div>
+    </div>
+</div>
