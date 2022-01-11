@@ -3,7 +3,7 @@
         <div class="login_left">
             <h2>Logo</h2>
             <div class="login_left_inner">
-                 <app-login></app-login>
+                 <app-login (loginEmitter)="login($event)"></app-login>
                 <div class="other_option">
                     <h6><span>or</span></h6>
                 </div>

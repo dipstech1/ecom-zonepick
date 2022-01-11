@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { PreauthRoutingModule } from './preauth-routing.module';
 import { PreauthShellComponent } from './preauth-shell.component';
+import { AuthService } from './api/auth.service';
+import { AuthFacade } from './facade/auth-facade';
 
 
 @NgModule({
@@ -12,6 +14,7 @@ import { PreauthShellComponent } from './preauth-shell.component';
   imports: [
     CommonModule,
     PreauthRoutingModule,
-  ]
+  ],
+  providers:[AuthService,AuthFacade]
 })
 export class PreauthModule { }
