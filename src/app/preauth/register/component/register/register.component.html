@@ -1,0 +1,68 @@
+<form class="login_form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="position-relative">
+        <input type="text" name="" id="" placeholder="Name" formControlName="name" name="" id="">
+        <div *ngIf="getControl.name.touched && getControl.name?.invalid" class="text-danger">
+            <div *ngIf="getControl.name.errors?.required">Name is required.</div>
+        </div>
+    </div>
+    <div class="form_inner">
+        <div class="position-relative" style="width: 48%;">
+            <input type="email" placeholder="Email ID" style="width: 100%;" formControlName="email" name=""
+                id="">
+            <div *ngIf="getControl.email.touched && getControl.email?.invalid" class="text-danger">
+                <div *ngIf="getControl.email.errors?.required">Email is required.</div>
+                <div *ngIf="getControl.email.errors?.email">Email seems invalid.</div>
+            </div>
+        </div>
+        <div class="position-relative" style="width: 48%;">
+            <input type="number" placeholder="Phone Number" style="width: 100%;" formControlName="phone" name=""
+                id="">
+            <div *ngIf="getControl.phone.touched && getControl.phone?.invalid" class="text-danger">
+                <div *ngIf="getControl.phone.errors?.required">Phone Number is required.</div>
+                <div *ngIf="getControl.phone.errors?.minlength">Phone Number must be of 10 digits</div>
+            </div>
+        </div>
+    </div>
+    <div class="form_inner">
+        <div class="position-relative" style="width: 48%;">
+            <select name="state" id="state" formControlName="state" style="width: 100%;">
+                <option value="">State</option>
+                <option value="1">bbb</option>
+                <option value="2">ccc</option>
+                <option value="3">ddd</option>
+            </select>
+            <div *ngIf="getControl.state.touched && getControl.state?.invalid" class="text-danger">
+                <div *ngIf="getControl.state.errors?.required">state is required.</div>
+            </div>
+        </div>
+        <div class="position-relative" style="width: 48%;">
+            <input type="number" placeholder="Pincode" formControlName="zip" name="" id="" style="width: 100%;">
+            <div *ngIf="getControl.zip.touched && getControl.zip?.invalid" class="text-danger">
+                <div *ngIf="getControl.zip.errors?.required">Pincode is required.</div>
+            </div>
+        </div>
+    </div>
+    <div class="position-relative">
+        <input type="password" placeholder="Password" formControlName="password">
+        <div *ngIf="getControl.password?.touched && getControl.password?.invalid" class="text-danger">
+            <div *ngIf="getControl.password.errors?.required">Password is required.</div>
+        </div>
+    </div>
+    <div class="position-relative">
+        <input type="password" placeholder="Confirm password" formControlName="con_password">
+        <div *ngIf="getControl.con_password?.touched && getControl.con_password?.invalid" class="text-danger">
+            <div *ngIf="getControl.con_password.errors?.required">Confirm password is required.</div>
+        </div>
+    </div>
+    <div class="terms_cond">
+        <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+        </label>
+        <div class="terms">
+            I accept the <a href="javascript:void(0)">Terms & Conditions</a> and <a
+                href="javascript:void(0)">Privacy Policy.</a>
+        </div>
+    </div>
+    <button class="custom_btn">Register</button>
+</form>
