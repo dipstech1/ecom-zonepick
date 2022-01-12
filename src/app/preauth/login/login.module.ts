@@ -6,6 +6,8 @@ import { LoginContainerComponent } from './container/login-container/login-conta
 import { LoginComponent } from './component/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SocialLoginComponent } from './component/social-login/social-login.component';
+import { LoginService } from './api/login.service';
+import { LoginFacade } from './facade/login-facade';
 
 
 @NgModule({
@@ -19,6 +21,8 @@ import { SocialLoginComponent } from './component/social-login/social-login.comp
     LoginRoutingModule,
     FormsModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers:[LoginService,LoginFacade]
+
 })
 export class LoginModule { }

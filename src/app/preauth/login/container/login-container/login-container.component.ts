@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthFacade } from 'src/app/preauth/facade/auth-facade';
+import { LoginFacade } from '../../facade/login-facade';
 
 @Component({
   selector: 'app-login-container',
@@ -8,7 +8,7 @@ import { AuthFacade } from 'src/app/preauth/facade/auth-facade';
   styleUrls: ['./login-container.component.scss']
 })
 export class LoginContainerComponent implements OnInit {
-  constructor(private authFacade:AuthFacade){}
+  constructor(private authFacade:LoginFacade){}
   ngOnInit(): void {
     
   }
