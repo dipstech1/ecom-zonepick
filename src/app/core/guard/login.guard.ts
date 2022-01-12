@@ -9,7 +9,7 @@ export class LoginGuard implements CanActivate {
    constructor(private router:Router,private service:AuthenticationService){}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    if(this.loggedIn){
+    if(this.service.isLoggedIn()){
       this.router.navigate(['dashboard']);
       return false;
     }
