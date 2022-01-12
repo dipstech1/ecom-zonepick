@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { IAuth } from "../../model/IAuth.model";
+import { IAuth, ILoginResponse } from "../../model/Login.model";
 import { LoginService } from "../api/login.service";
 
 

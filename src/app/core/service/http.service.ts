@@ -42,6 +42,7 @@ export abstract class HttpService<T> {
   add(resource: T): Observable<any> {
     return this.httpClient.post(`${this.APIUrl}`, this.toServerModel(resource))
       .pipe(
+        map((json) => this.fromServerModel(json)),
         catchError(this.handleError)
       );
   }
