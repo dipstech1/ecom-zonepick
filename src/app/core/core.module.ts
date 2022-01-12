@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpService } from './service/http.service';
 import { AuthGuard } from './guard/auth.guard';
 import { LoginGuard } from './guard/login.guard';
+import { AuthenticationService } from './service/authentication.service';
 
 
 
@@ -20,7 +21,8 @@ export class CoreModule {
       ngModule:CoreModule,
       providers:[
           AuthGuard,
-          LoginGuard
+          LoginGuard,
+          AuthenticationService
       ]
     }
   }
