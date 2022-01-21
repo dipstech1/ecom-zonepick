@@ -60,3 +60,11 @@
     border: none;
     padding: 14px;
   }
+  @media (max-width: 850px) {
+    .login_form input{
+      padding-bottom: 5px;
+      padding-top: 5px;
+      padding-left: 10px;
+      border-radius: 15px;
+    }
+  }
