@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterService } from './api/register.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterFacade } from './facade/register-facade';
+import { ModalModule } from 'src/app/ui-libary/modal/modal.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { RegisterFacade } from './facade/register-facade';
     RegisterRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule
   ],
   providers:[RegisterService,RegisterFacade]
 })

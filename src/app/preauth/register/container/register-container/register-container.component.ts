@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { IRegister } from 'src/app/preauth/model/Register.model';
+import { ModalService } from 'src/app/ui-libary/modal/service/modal.service';
 import { RegisterFacade } from '../../facade/register-facade';
 
 @Component({
@@ -9,7 +10,7 @@ import { RegisterFacade } from '../../facade/register-facade';
   styleUrls: ['./register-container.component.scss']
 })
 export class RegisterContainerComponent implements OnInit {
-  constructor(private registerFacade:RegisterFacade){}
+  constructor(private registerFacade:RegisterFacade, private modalService:ModalService){}
   ngOnInit(): void {
   }
 
@@ -19,5 +20,9 @@ export class RegisterContainerComponent implements OnInit {
       console.log(res.message);
       
     })
+  }
+
+  open() {
+    this.modalService.open();
   }
 }
