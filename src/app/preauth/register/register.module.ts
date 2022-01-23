@@ -9,6 +9,7 @@ import { RegisterService } from './api/register.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterFacade } from './facade/register-facade';
 import { ModalModule } from 'src/app/ui-libary/modal/modal.module';
+import { CodeInputModule } from 'angular-code-input';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ModalModule } from 'src/app/ui-libary/modal/modal.module';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ModalModule
+    ModalModule,
+    CodeInputModule
   ],
   providers:[RegisterService,RegisterFacade]
 })

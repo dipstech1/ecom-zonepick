@@ -8,7 +8,7 @@ import { PreauthShellComponent } from './preauth-shell.component';
 
 @NgModule({
   declarations: [
-    PreauthShellComponent
+    PreauthShellComponent,
   ],
   imports: [
     CommonModule,
