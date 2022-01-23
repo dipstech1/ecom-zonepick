@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { first, pluck, takeUntil } from 'rxjs/operators';
 import { IRegister, IRegisterResponse } from 'src/app/preauth/model/Register.model';
 import { ModalService } from 'src/app/ui-libary/modal/service/modal.service';
 import { RegisterFacade } from '../../facade/register-facade';
@@ -10,16 +11,22 @@ import { RegisterFacade } from '../../facade/register-facade';
   templateUrl: './register-container.component.html',
   styleUrls: ['./register-container.component.scss']
 })
-export class RegisterContainerComponent implements OnInit {
-  registerSuccess$!: Observable<IRegisterResponse>
+export class RegisterContainerComponent implements OnInit,OnDestroy {
+  registerSuccess!:IRegisterResponse;
+  private ngUnsubscribe = new Subject();
   constructor(private registerFacade:RegisterFacade, private modalService:ModalService){}
+  
   ngOnInit(): void {
     this.open()
   }
 
   
   register(data:IRegister){
-    this.registerSuccess$ = this.registerFacade.registerUser(data)
+    this.registerFacade.registerUser(data)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe((data:IRegisterResponse) => {
+      this.registerSuccess = data;
+    })
   }
 
   open() {
@@ -27,13 +34,21 @@ export class RegisterContainerComponent implements OnInit {
   }
 
   onCodeChanged(code: any) {
-    console.log("onCodeChanged ", code);
+    // console.log("onCodeChanged ", code);
     
   }
 
   // this called only if user entered full code
   onCodeCompleted(code: any) {
-    console.log("onCodeCompleted ", code);
+    this.registerFacade.sendVerificationCode(code,this.registerSuccess.userid)
+    .pipe(takeUntil(this.ngUnsubscribe))
+    .subscribe(res => {
+      console.log(res)
+    })
+  }
 
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

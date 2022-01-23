@@ -55,7 +55,7 @@ export abstract class HttpService<T> {
   }
 
   update(resource: T) {
-    return this.httpClient.put(`${this.APIUrl}`, this.toServerModel(resource))
+    return this.httpClient.patch(`${this.APIUrl}`, this.toServerModel(resource))
       .pipe(
         catchError(this.handleError)
       );

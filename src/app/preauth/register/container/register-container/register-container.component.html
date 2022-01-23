@@ -14,11 +14,12 @@
     </div>
 </div>
 
-<ng-container *ngIf="(registerSuccess$ | async)?.nextHandler == 'verify'">
+<ng-container *ngIf="registerSuccess?.nextHandler == 'verify'">
     <app-modal>
         <div>
+            <h3>Enter the verification code</h3>
         <code-input 
-                  [codeLength]="5"
+                  [codeLength]="6"
                   (codeChanged)="onCodeChanged($event)"
                   (codeCompleted)="onCodeCompleted($event)">
        </code-input>

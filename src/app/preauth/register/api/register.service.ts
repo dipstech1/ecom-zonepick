@@ -12,10 +12,14 @@ export class RegisterService  extends HttpService<IRegister> {
   constructor(private http:HttpClient ) {
     super(http)
   }
-
+  verifyOTP(otp:string, userID:string){
+      return this.http.patch(`${environment.baseUrl}verify/${userID}`,{otp})
+  }
   toServerModel(entity: IRegister) {
     return{
       ...entity
     }
+
+  
 }
 }

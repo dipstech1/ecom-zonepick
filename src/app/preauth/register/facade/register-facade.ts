@@ -12,4 +12,8 @@ export class RegisterFacade {
         this.registerResponse$ = this.authService.add(userData)
         return this.registerResponse$
     }
+
+    sendVerificationCode(otpCode:string, userId:string){
+        return this.authService.verifyOTP(otpCode,userId)
+    }
 }
