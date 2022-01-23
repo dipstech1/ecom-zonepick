@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { IRegister } from 'src/app/preauth/model/Register.model';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
+  @Output() regiterEmitter = new EventEmitter<IRegister>();
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -17,7 +19,7 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       phone:  ['', [Validators.required, Validators.minLength(10)]],
       state:  ['', [Validators.required]],
-      zip:  ['', [Validators.required]],
+      pincode:  ['', [Validators.required]],
       password: ['', [Validators.required]],
       con_password: ['', [Validators.required]]
     })
@@ -27,8 +29,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.registerForm.value);
-
+    const {name,email,phone,state,pincode,password} = this.registerForm.value as IRegister
+    this.regiterEmitter.emit({name,email,phone,state,pincode,password})
   }
 
 }
