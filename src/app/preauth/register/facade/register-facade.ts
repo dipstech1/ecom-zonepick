@@ -9,7 +9,7 @@ export class RegisterFacade {
     constructor(private authService:RegisterService){}
 
     registerUser(userData:IRegister){
-        this.registerResponse$ = this.authService.add(userData)
+        this.registerResponse$ = this.authService.registerUser(userData)
         return this.registerResponse$
     }
 
