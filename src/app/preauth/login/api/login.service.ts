@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Optional } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IAuth, ILoginResponse } from '../../model/Login.model';
 
 @Injectable()
@@ -10,8 +11,8 @@ export class LoginService  {
   constructor(private http:HttpClient ) {
   }
 
-  testSer(){
-    return this.http.get("https://reqres.in/api/users?page=2")
+  login(data:IAuth){
+    return this.http.post(`${environment.baseUrl}${environment.apiURL.auth.login}`,data)
   }
 
 }

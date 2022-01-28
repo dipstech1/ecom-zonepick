@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/core/service/authentication.service';
-import { ILoginResponse } from 'src/app/preauth/model/Login.model';
+import { IAuth, ILoginResponse } from 'src/app/preauth/model/Login.model';
 import { LoginService } from '../../api/login.service';
 import { LoginFacade } from '../../facade/login-facade';
 
@@ -15,23 +15,14 @@ export class LoginContainerComponent implements OnInit {
   constructor(private authFacade:LoginFacade, private router:Router, 
     private authenticationService:AuthenticationService,private ls:LoginService){}
   ngOnInit(): void {
-      this.ls.testSer().subscribe(r=>{
-        console.log(r);
-        
-      })
+      
   }
 
-  login(e:any){
-    let data = {
-      "email": "eve.holt@reqres.in",
-      "password": "cityslicka"
-  }
-
-   this.authFacade.loginUser(data).subscribe((r:ILoginResponse) => {
-      if(r.token){
-        this.authenticationService.setStorage("token",r.token)
-        this.router.navigate(['dashboard'])
-      }
+  login(data:IAuth){
+    
+   this.authFacade.loginUser(data).subscribe((r:any) => {
+      console.log(r);
+      
    })
   }
 

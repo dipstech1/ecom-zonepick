@@ -8,6 +8,8 @@ import { AuthenticationService } from './service/authentication.service';
 import { LoaderService } from './service/loader.service';
 import { LoaderInterceptor } from './interceptors/loading.interceptor';
 import { EnsureModuleLoadedOnceGuard } from './ensureModuleLoadedOnceGuard';
+import { ToasterService } from './service/toaster.service';
+import { HttpConfigInterceptor } from './interceptors/http.interceptors';
 
 
 
@@ -22,7 +24,9 @@ import { EnsureModuleLoadedOnceGuard } from './ensureModuleLoadedOnceGuard';
     LoginGuard,
     AuthenticationService,
     LoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+    ToasterService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
   ]
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {

@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { LoaderInterceptor } from './core/interceptors/loading.interceptor';
 import { LoaderModule } from './ui-libary/loader/loader.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { LoaderModule } from './ui-libary/loader/loader.module';
     AppRoutingModule,
     HttpClientModule,
     CoreModule,
-    LoaderModule
+    LoaderModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
   ],
