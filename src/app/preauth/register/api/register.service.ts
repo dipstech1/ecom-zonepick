@@ -6,9 +6,7 @@ import { IRegister, IRegisterResponse } from '../../model/Register.model';
 
 @Injectable()
 export class RegisterService  {
-  getResourceUrl(): string {
-    return environment.apiURL.auth.register;
-  }
+  
   constructor(private http:HttpClient ) {
   }
   verifyOTP(otp:string, userID:string){

@@ -42,7 +42,7 @@ export class RegisterContainerComponent implements OnInit,OnDestroy {
 
   // this called only if user entered full code
   onCodeCompleted(code: any) {
-    this.registerFacade.sendVerificationCode(code,this.registerSuccess.userid)
+    this.registerFacade.sendVerificationCode(code,this.registerSuccess?.userid)
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe(res => {
       console.log(res)

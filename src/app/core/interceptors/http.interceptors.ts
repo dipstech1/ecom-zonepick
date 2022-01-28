@@ -28,6 +28,8 @@ export class HttpConfigInterceptor implements HttpInterceptor {
         }
 
         request = request.clone({ headers: request.headers.set('Accept', 'application/json') });
+        console.log("request ", request);
+        
 
         return next.handle(request).pipe(
             tap(evt => {
