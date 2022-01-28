@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { first, pluck, takeUntil } from 'rxjs/operators';
+import { ToasterService } from 'src/app/core/service/toaster.service';
 import { IRegister, IRegisterResponse } from 'src/app/preauth/model/Register.model';
 import { ModalService } from 'src/app/ui-libary/modal/service/modal.service';
 import { RegisterFacade } from '../../facade/register-facade';
@@ -14,7 +15,7 @@ import { RegisterFacade } from '../../facade/register-facade';
 export class RegisterContainerComponent implements OnInit,OnDestroy {
   registerSuccess!:IRegisterResponse;
   private ngUnsubscribe = new Subject();
-  constructor(private registerFacade:RegisterFacade, private modalService:ModalService){}
+  constructor(private registerFacade:RegisterFacade, private modalService:ModalService,private toaster:ToasterService){}
   
   ngOnInit(): void {
     this.open()
@@ -26,6 +27,7 @@ export class RegisterContainerComponent implements OnInit,OnDestroy {
     .pipe(takeUntil(this.ngUnsubscribe))
     .subscribe((data:IRegisterResponse) => {
       this.registerSuccess = data;
+      this.toaster.showSuccess(this.registerSuccess.message, "Register Succsfull")
     })
   }
 

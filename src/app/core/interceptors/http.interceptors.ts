@@ -9,7 +9,7 @@ import {
 } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { ToasterService } from '../service/toaster.service';
 
 
@@ -30,7 +30,13 @@ export class HttpConfigInterceptor implements HttpInterceptor {
         request = request.clone({ headers: request.headers.set('Accept', 'application/json') });
 
         return next.handle(request).pipe(
+            tap(evt => {
+                if(evt instanceof HttpResponse)
+                    console.log(evt)
+            }),
             map((event: HttpEvent<any>) => {
+                console.log("event ", event);
+                
                 if (event instanceof HttpResponse) {
                     console.log('event--->>>', event);
 
