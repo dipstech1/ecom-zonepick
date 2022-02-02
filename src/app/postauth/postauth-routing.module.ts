@@ -5,7 +5,10 @@ import { PostauthShellComponent } from './postauth-shell.component';
 const routes: Routes = [
   {
     path:"",
-    component:PostauthShellComponent
+    component:PostauthShellComponent,
+    children:[
+      {path:"user-profile",loadChildren:()=>import('./profile/profile.module').then(m=>m.ProfileModule)}
+    ]
   }
 ];
 

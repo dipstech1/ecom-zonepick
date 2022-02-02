@@ -6,13 +6,13 @@ import { LoginGuard } from './core/guard/login.guard';
 const routes: Routes = [
   {
     path:"", 
-    canActivate:[LoginGuard],
+    // canActivate:[LoginGuard],
     loadChildren:()=> import('./preauth/preauth.module').then(m=>m.PreauthModule),
   },
   {
     path:"dashboard",
     loadChildren:()=> import('./postauth/postauth.module').then(m=>m.PostauthModule),
-    canLoad:[AuthGuard]
+    // canLoad:[AuthGuard]
   }
 ];
 
