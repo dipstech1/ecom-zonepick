@@ -7,6 +7,7 @@ const routes: Routes = [
     path:"",
     component:PostauthShellComponent,
     children:[
+      {path:"",loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule)},
       {path:"user-profile",loadChildren:()=>import('./profile/profile.module').then(m=>m.ProfileModule)}
     ]
   }

@@ -5,7 +5,6 @@ import { PostauthRoutingModule } from './postauth-routing.module';
 import { PostauthShellComponent } from './postauth-shell.component';
 import { SharedModule } from '../shared/shared.module';
 
-
 @NgModule({
   declarations: [
     PostauthShellComponent
