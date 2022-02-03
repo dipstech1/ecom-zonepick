@@ -16,7 +16,7 @@ import { CardModule } from 'src/app/ui-libary/card/card.module';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    CardModule
+    CardModule,
   ]
 })
 export class DashboardModule { }
