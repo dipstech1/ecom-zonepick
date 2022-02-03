@@ -4,5 +4,6 @@ export interface IAuth{
 }
 
 export interface ILoginResponse{
-    token:string
+    token:string,
+    email:string
 }

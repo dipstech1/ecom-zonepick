@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LOGIN_KEY } from 'src/app/constants/storage.constant';
 
 @Injectable()
 export class AuthenticationService {
@@ -17,6 +18,6 @@ export class AuthenticationService {
   }
 
   isLoggedIn():boolean{
-    return !!this.getStorageData('token');
+    return !!this.getStorageData(LOGIN_KEY);
   }
 }
