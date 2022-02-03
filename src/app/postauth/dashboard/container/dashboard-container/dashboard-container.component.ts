@@ -18,6 +18,16 @@ export class DashboardContainerComponent implements OnInit {
   constructor(private dashboardService:DashboardFacade) { }
 
   ngOnInit(): void {
+    this.getPurchaseProduct();
+  }
+
+  getRentProduct(){
+    this.dashboardService.getRentProducts().subscribe((res:any) => {
+      this.allProductRecords= [...res]
+    })
+  }
+
+  getPurchaseProduct(){
     this.dashboardService.getPurchaseProduct().subscribe((res:any) => {
       this.allProductRecords= [...res]
     })
@@ -25,5 +35,10 @@ export class DashboardContainerComponent implements OnInit {
 
   selectedTab(tab:string){
     this.selectedTabRecord = tab;
+    if(this.selectedTabRecord === tabTitles.BUY){
+      this.getPurchaseProduct()
+    } else{
+      this.getRentProduct()
+    }
   }
 }
