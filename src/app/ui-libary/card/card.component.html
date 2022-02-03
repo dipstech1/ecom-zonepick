@@ -1,16 +1,16 @@
 <div class="card card-box">
     <img class="card-img-top" src="../../../assets/images/camera.png" alt="Card image cap">
     <div class="card-body">
-      <div class="card-title">Price: INR 1300</div>
+      <div class="card-title">Price: {{productDetail?.price}}</div>
       <div class="card-product-desc">
         <div class="desc card-txt">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <span class="product-name">{{productDetail?.name}}</span>
         </div>
         <div class="owner card-txt">
-            Amit Shah
+            From: <span> {{productDetail?.seller_details?.name}}</span>
         </div>
         <div class="location card-txt">
-            <span>Kolkata </span> | <span>27th July, 2021</span>
+            <span> {{productDetail?.seller_details?.state}} </span> | <span> {{productDetail?.seller_details?.pincode}}</span>
         </div>
       </div>
     </div>

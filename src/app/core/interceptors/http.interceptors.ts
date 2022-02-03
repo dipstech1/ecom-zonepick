@@ -11,13 +11,15 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { ToasterService } from '../service/toaster.service';
+import { AuthenticationService } from '../service/authentication.service';
+import { LOGIN_KEY } from 'src/app/constants/storage.constant';
 
 
 @Injectable()
 export class HttpConfigInterceptor implements HttpInterceptor {
-    constructor(private notificationService:ToasterService ) { }
+    constructor(private notificationService:ToasterService,private authService:AuthenticationService ) { }
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const token: any = localStorage.getItem('token');
+        const token: any = this.authService.getStorageData(LOGIN_KEY)?.token;
 
         if (token) {
             request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + token) });

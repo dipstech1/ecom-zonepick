@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-product-list',
@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class DashboardProductListComponent implements OnInit {
-  productList = [1,2,2,2,2,2,2]
+  @Input() productList = []
   constructor() { }
 
   ngOnInit(): void {

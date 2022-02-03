@@ -1,19 +1,13 @@
 <div class="dashboard-wrapper">
 
     <div class="product-list">
-            <!-- <ng-container *ngFor="let tab of tabList">
-                <tab heading={{tab.title}}>
-                    <app-dashboard-product-list></app-dashboard-product-list>
-                </tab>
-            
-            </ng-container> -->
+
             <ul class="nav nav-tabs">
                 <li class="nav-item mx-1" *ngFor="let tab of tabList" (click)="selectedTab(tab.title)">
-                  <!-- <span class="nav-link " [ngClass]="{'active':selectedTabRecord===tab.title}">{{tab.title}}</span> -->
                   <span class="nav-link" [class.active]="selectedTabRecord===tab.title" >{{tab.title}}</span>
                 </li>
                 
               </ul>
-            <app-dashboard-product-list></app-dashboard-product-list>
+            <app-dashboard-product-list [productList]="allProductRecords"></app-dashboard-product-list>
     </div>
 </div>

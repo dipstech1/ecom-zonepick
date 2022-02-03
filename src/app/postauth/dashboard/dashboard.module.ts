@@ -5,6 +5,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardContainerComponent } from './container/dashboard-container/dashboard-container.component';
 import { DashboardProductListComponent } from './component/dashboard-product-list/dashboard-product-list.component';
 import { CardModule } from 'src/app/ui-libary/card/card.module';
+import { DashboardService } from './api/dashboard.service';
+import { DashboardFacade } from './facade/dashboard.facade';
 
 
 
@@ -17,6 +19,7 @@ import { CardModule } from 'src/app/ui-libary/card/card.module';
     CommonModule,
     DashboardRoutingModule,
     CardModule,
-  ]
+  ],
+  providers:[DashboardService,DashboardFacade]
 })
 export class DashboardModule { }
