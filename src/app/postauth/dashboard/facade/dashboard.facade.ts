@@ -8,10 +8,10 @@ export class DashboardFacade{
     constructor(private dashboardService:DashboardService){}
 
     getRentProducts(){
-        return this.dashboardService.getProductForRent()
+        return this.dashboardService.rentProduct
     }
 
     getPurchaseProduct(){
-        return this.dashboardService.getProductForPurchase()
+        return this.dashboardService.purchaseProduct
     }
 }

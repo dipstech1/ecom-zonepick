@@ -35,14 +35,13 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
         return next.handle(request).pipe(
             tap(evt => {
-                if(evt instanceof HttpResponse)
-                    console.log(evt)
+                // if(evt instanceof HttpResponse)
+                //     console.log(evt)
             }),
             map((event: HttpEvent<any>) => {
-                console.log("event ", event);
                 
                 if (event instanceof HttpResponse) {
-                    console.log('event--->>>', event);
+                    // console.log('event--->>>', event);
 
                 }
                 return event;
