@@ -2,6 +2,11 @@
     cursor: pointer;
 }
 
-.nav-link.active{
+.nav-link.active,.type{
     color: #FE4E0E;
+}
+
+.type{
+    font-weight: 500;
+    font-size: 30px;
 }

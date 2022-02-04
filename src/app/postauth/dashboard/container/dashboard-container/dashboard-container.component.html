@@ -1,8 +1,10 @@
 <div class="dashboard-wrapper">
 
-    <div class="product-list">
-
-            <ul class="nav nav-tabs">
+    <div class="product-list p-4">
+            <div class="type mb-3">
+              Latest Products
+            </div>
+            <ul class="nav nav-tabs mt-3">
                 <li class="nav-item mx-1" *ngFor="let tab of tabList" (click)="selectedTab(tab.title)">
                   <span class="nav-link" [class.active]="selectedTabRecord===tab.title" >{{tab.title}}</span>
                 </li>
