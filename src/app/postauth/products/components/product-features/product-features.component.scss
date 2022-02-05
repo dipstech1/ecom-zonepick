@@ -1,0 +1,15 @@
+.feature-wrapper{
+    .feature{
+        height: 100px;
+        width: 100px;
+        // display: table-cell;
+        // text-align: center;
+        // vertical-align: middle;
+        display: flex;
+    justify-content: center;
+    align-items: center;
+        border-radius: 50%; /* may require vendor prefixes */
+        background: #06d981;
+        color: #FFFFFF;
+    }
+}
