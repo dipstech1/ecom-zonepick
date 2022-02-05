@@ -11,6 +11,7 @@ import { ProductFacade } from './facade/product.facade';
 import { ProductService } from './api/product.service';
 
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { GoogleMapsModule } from '@angular/google-maps'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    TooltipModule
+    TooltipModule,
+    GoogleMapsModule
   ],
   providers:[ProductFacade,ProductService]
 })
