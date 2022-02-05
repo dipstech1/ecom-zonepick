@@ -7,7 +7,10 @@ import { ProductImageGalleryComponent } from './components/product-image-gallery
 import { SellerCardComponent } from './components/seller-card/seller-card.component';
 import { SellerLocationComponent } from './components/seller-location/seller-location.component';
 import { ProductFeaturesComponent } from './components/product-features/product-features.component';
+import { ProductFacade } from './facade/product.facade';
+import { ProductService } from './api/product.service';
 
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { ProductFeaturesComponent } from './components/product-features/product-
   ],
   imports: [
     CommonModule,
-    ProductsRoutingModule
-  ]
+    ProductsRoutingModule,
+    TooltipModule
+  ],
+  providers:[ProductFacade,ProductService]
 })
 export class ProductsModule { }

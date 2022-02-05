@@ -1,16 +1,17 @@
 <div class="product-details-wrapper">
 
     <section>
-        <h3>IPhone 11</h3>
+        <h3>Product Name: {{productDetails?.name}}</h3>
+        <div>Brand: {{productDetails?.brand}}</div>
     </section>
 
-    <section class="row mx-3 mb-5">
+    <section class="row mx-3 mb-5 my-5">
             <div class="col-md-6 col-sm-12">
                 <app-product-image-gallery></app-product-image-gallery>
             </div>
             <div  class="col-md-6 col-sm-12">
                 <div class="mb-4">
-                    <app-seller-card></app-seller-card>
+                    <app-seller-card [userDetails]="productDetails?.seller_details"></app-seller-card>
                 </div>
                 <div>
                     <app-seller-location></app-seller-location>
@@ -24,7 +25,7 @@
             <div class="mb-3 prod-details">
                 Product Details/Specification
             </div>
-            <app-product-features></app-product-features>
+            <app-product-features [features]="productDetails?.specifications"></app-product-features>
         </div>
     </section>
 

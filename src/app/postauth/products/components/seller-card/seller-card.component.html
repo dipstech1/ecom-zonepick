@@ -9,8 +9,8 @@
                 </div>
                 <div class="mx-2">
                     <div class="d-flex seller-name-phn flex-column">
-                        <div>Rohit Sen</div>
-                        <div class="phn-no">View phone number</div>
+                        <div>{{userDetails?.name}}</div>
+                        <div class="phn-no" tooltip="{{userDetails?.phone}}">View phone number</div>
                     </div>
                   
                 </div>
@@ -22,7 +22,7 @@
 
           <div class="action d-flex flex-column align-items-center mt-3">
               <div class="action-btn mb-3">
-                <button class="primary-btn">Call Seller</button>
+                <button class="primary-btn">Email Seller</button>
               </div>
               <div class="action-btn mb-3">
                 <button class="primary-btn">Chat With Seller</button>

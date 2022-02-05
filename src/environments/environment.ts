@@ -12,7 +12,8 @@ export const environment = {
       register:"api/register"
     },
     rent:"products/rent",
-    purchase:"products/purchase"
+    purchase:"products/purchase",
+    findProduct:"products"
   }
 };
 

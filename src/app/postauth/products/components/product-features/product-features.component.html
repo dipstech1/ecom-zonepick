@@ -1,18 +1,6 @@
 <div class="feature-wrapper d-flex">
 
-        <div class="chip">
-            <div class="chip-content">Brand: Mi</div>
-        </div>
-        <div class="chip">
-            <div class="chip-content">Iphone 11</div>
-        </div>
-        <div class="chip">
-            <div class="chip-content">With box</div>
-        </div>
-        <div class="chip">
-            <div class="chip-content">64gb memory</div>
-        </div>
-        <div class="chip">
-            <div class="chip-content">Charger included</div>
+        <div class="chip" *ngFor="let features of features">
+            <div class="chip-content">{{features}}</div>
         </div>
 </div>
