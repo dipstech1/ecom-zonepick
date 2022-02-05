@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-product-list',
@@ -7,10 +8,14 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class DashboardProductListComponent implements OnInit {
-  @Input() productList = []
-  constructor() { }
+  @Input() productList:Array<any> = []
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  goToProductDetails(id:any){
+    this.router.navigateByUrl(`/product/details/${id}`)
   }
 
 }

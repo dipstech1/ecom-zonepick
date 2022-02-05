@@ -8,7 +8,8 @@ const routes: Routes = [
     component:PostauthShellComponent,
     children:[
       {path:"",loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule)},
-      {path:"user-profile",loadChildren:()=>import('./profile/profile.module').then(m=>m.ProfileModule)}
+      {path:"user-profile",loadChildren:()=>import('./profile/profile.module').then(m=>m.ProfileModule)},
+      {path:"product",loadChildren:()=>import('./products/products.module').then(m=>m.ProductsModule)}
     ]
   }
 ];
