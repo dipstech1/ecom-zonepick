@@ -1,8 +1,8 @@
 <div class="product-details-wrapper">
 
     <section>
-        <h3>Product Name: {{productDetails?.name}}</h3>
-        <div>Brand: {{productDetails?.brand}}</div>
+        <h3>{{productDetails?.name}}</h3>
+        <div>{{productDetails?.price}}</div>
     </section>
 
     <section class="row mx-3 mb-5 my-5">
@@ -20,13 +20,42 @@
         
     </section>
 
-    <section class="mx-4">
-        <div>
-            <div class="mb-3 prod-details">
-                Product Details/Specification
+    <section class="row mx-4">
+        <div class="col-md-6 col-sm-12">
+            <div class="card pb-3">
+                <div class="card-body mb-3 prod-details">
+                    Product Details
+                </div>
+                <app-product-features [features]="productDetails?.specifications"></app-product-features>
             </div>
-            <app-product-features [features]="productDetails?.specifications"></app-product-features>
         </div>
+
+        <div class="col-md-6 col-sm-12 my-md-0 my-sm-2 ">
+            <div class="card pb-3">
+                <div class="card-body mb-3 prod-details ">
+                    Product Specification
+                </div>
+                <div>
+                   <div class="specs">
+                       <div>Brand:</div>
+                       <div>{{productDetails?.brand}} </div>
+                   </div>
+                   <div class="specs">
+                        <div>Category:</div>
+                        <div>{{productDetails?.category}} </div>
+                    </div>
+                   <div class="specs">
+                        <div>Origin:</div>
+                        <div>{{productDetails?.origin}} </div>
+                    </div>
+                   <div class="specs">
+                        <div>Status:</div>
+                        <div>{{productDetails?.product_status}} </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </section>
 
 </div>
