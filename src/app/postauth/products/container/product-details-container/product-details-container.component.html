@@ -6,10 +6,10 @@
     </section>
 
     <section class="row mx-3 mb-5 my-5">
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-8 col-sm-12">
                 <app-product-image-gallery></app-product-image-gallery>
             </div>
-            <div  class="col-md-6 col-sm-12">
+            <div  class="col-md-4 col-sm-12">
                 <div class="mb-4">
                     <app-seller-card [productName]="productDetails?.name" [userDetails]="productDetails?.seller_details"></app-seller-card>
                 </div>
@@ -37,20 +37,20 @@
                 </div>
                 <div>
                    <div class="specs">
-                       <div>Brand:</div>
-                       <div>{{productDetails?.brand}} </div>
+                       <div class="topic">Brand:</div>
+                       <div class="det">{{productDetails?.brand}} </div>
                    </div>
                    <div class="specs">
-                        <div>Category:</div>
-                        <div>{{productDetails?.category}} </div>
+                        <div class="topic">Category:</div>
+                        <div class="det">{{productDetails?.category}} </div>
                     </div>
                    <div class="specs">
-                        <div>Origin:</div>
-                        <div>{{productDetails?.origin}} </div>
+                        <div class="topic">Origin:</div>
+                        <div class="det">{{productDetails?.origin}} </div>
                     </div>
                    <div class="specs">
-                        <div>Status:</div>
-                        <div>{{productDetails?.product_status}} </div>
+                        <div class="topic">Status:</div>
+                        <div class="det">{{productDetails?.product_status}} </div>
                     </div>
                 </div>
             </div>

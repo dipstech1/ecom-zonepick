@@ -11,6 +11,7 @@ import { EnsureModuleLoadedOnceGuard } from './ensureModuleLoadedOnceGuard';
 import { ToasterService } from './service/toaster.service';
 import { HttpConfigInterceptor } from './interceptors/http.interceptors';
 import { CacheInterceptor } from './interceptors/caching.interceptor';
+import { ScriptLoaderService } from './service/scriptload.service';
 
 
 
@@ -26,6 +27,7 @@ import { CacheInterceptor } from './interceptors/caching.interceptor';
     AuthenticationService,
     LoaderService,
     ToasterService,
+    ScriptLoaderService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },

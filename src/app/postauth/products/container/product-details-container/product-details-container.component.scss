@@ -15,6 +15,15 @@
             display: flex;
             justify-content: space-around;
             border-bottom: 1px solid #e9ddddad;
+
+            .topic{
+                color: #FF6B34;
+                font-weight: 800;
+            }
+
+            .det{
+                color: #777;
+            }
         }
     }
 }

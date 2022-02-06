@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScriptLoaderService } from '../core/service/scriptload.service';
 
 @Component({
   selector: 'app-postauth-shell',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostauthShellComponent implements OnInit {
 
-  constructor() { }
+  constructor(private scriptLoaderService:ScriptLoaderService) { }
 
   ngOnInit(): void {
+    // this.scriptLoaderService.loadScript()
   }
 
 }
