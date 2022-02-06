@@ -8,10 +8,17 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 })
 export class SellerCardComponent implements OnInit {
 
-  @Input() userDetails:any
+  @Input() userDetails:any;
+  @Input() productName  = '';
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  sendEmail(email:string){
+    console.log(email);
+    window.location.href = `mailto:${email}?subject=Regarding product ${this.productName}`;
+
   }
 
 }

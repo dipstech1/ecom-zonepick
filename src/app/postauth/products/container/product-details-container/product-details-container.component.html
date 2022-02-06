@@ -1,6 +1,6 @@
 <div class="product-details-wrapper">
 
-    <section>
+    <section class="mx-3">
         <h3>{{productDetails?.name}}</h3>
         <div>{{productDetails?.price}}</div>
     </section>
@@ -11,7 +11,7 @@
             </div>
             <div  class="col-md-6 col-sm-12">
                 <div class="mb-4">
-                    <app-seller-card [userDetails]="productDetails?.seller_details"></app-seller-card>
+                    <app-seller-card [productName]="productDetails?.name" [userDetails]="productDetails?.seller_details"></app-seller-card>
                 </div>
                 <div>
                     <app-seller-location></app-seller-location>
