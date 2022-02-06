@@ -19,11 +19,11 @@ export class SellerLocationComponent implements OnInit {
   }
 
   mapOptions: google.maps.MapOptions = {
-    center: { lat: 38.9987208, lng: -77.2538699 },
+    center: { lat: 22.5074, lng: 88.3873 },
     zoom : 14
  }
  marker = {
-    position: { lat: 38.9987208, lng: -77.2538699 },
+    position: { lat: 22.5074, lng: 88.3873 },
  }
   constructor() { }
 
