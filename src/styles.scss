@@ -12,3 +12,21 @@ body{
 .h-100{
     height: 100%;
 }
+
+.secondary-btn{
+    background: #FFFFFF;
+    border: 1px solid #FE4E0E;
+    box-sizing: border-box;
+    border-radius: 25px;
+    padding: 6px 20px;
+    font-family: "Raleway";
+    color: #FE4E0E;
+}
+
+.primary-btn{
+    background: #FE4E0E;
+    border: 1px solid #FE4E0E;
+    border-radius: 18px;
+    color: #fff;
+    width: 100%;
+}
