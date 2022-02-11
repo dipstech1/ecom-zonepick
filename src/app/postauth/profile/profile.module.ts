@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileDetailsComponent } from './container/profile-details/profile-details.component';
 import { ProfileDetailsInfoComponent } from './components/profile-details-info/profile-details-info.component';
+import { EditProfileComponent } from './container/edit-profile/edit-profile.component';
 
 
 @NgModule({
   declarations: [
     ProfileDetailsComponent,
-    ProfileDetailsInfoComponent
+    ProfileDetailsInfoComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,
