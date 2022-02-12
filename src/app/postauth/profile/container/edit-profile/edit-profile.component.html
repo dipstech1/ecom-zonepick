@@ -1,1 +1,50 @@
-<p>edit-profile works!</p>
+<div class="edit-wrapper">
+    <form>
+        <div class="profile-img d-flex justify-content-center">
+            <!-- <img src="../../../../../assets/images/other-product.jpg"/> -->
+            <label class="hoverable" for="fileInput">
+                <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"> 
+                <div class="hover-text">Choose file</div>
+                <div class="background"></div>
+              </label>
+              <br/>
+              <input id="fileInput" type='file' (change)="onSelectFile($event)">
+              <!-- <button *ngIf="url" (click)="delete()" >delete</button> -->
+        </div>
+        <div class="row">
+            <div class="col-md-6 com-sm-12 my-4">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Name</label>
+                    <input type="email" class="form-control"  placeholder="John Doe">
+                </div>
+            </div>
+            <div class="col-md-6 com-sm-12 my-4">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Phone</label>
+                    <input type="email" class="form-control"  placeholder="">
+                </div>
+            </div>
+            <div class="col-md-6 com-sm-12 my-4">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">About me</label>
+                    <input type="email" class="form-control"  placeholder="">
+                </div>
+            </div>
+            <div class="col-md-6 com-sm-12 my-4">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+            </div>
+           
+        </div>
+        <div class="button-utility d-flex justify-content-around">
+            <div>
+                <button class="btn btn-danger" >Discard</button>
+            </div>
+            <div>
+                <button class="btn btn-success" >Save</button>
+            </div>
+        </div>
+    </form>
+</div>
