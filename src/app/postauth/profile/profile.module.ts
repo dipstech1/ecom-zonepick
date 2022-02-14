@@ -5,6 +5,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileDetailsComponent } from './container/profile-details/profile-details.component';
 import { ProfileDetailsInfoComponent } from './components/profile-details-info/profile-details-info.component';
 import { EditProfileComponent } from './container/edit-profile/edit-profile.component';
+import { ProfileService } from './api/profile.service';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { EditProfileComponent } from './container/edit-profile/edit-profile.comp
   imports: [
     CommonModule,
     ProfileRoutingModule
-  ]
+  ],
+  providers:[ProfileService]
 })
 export class ProfileModule { }

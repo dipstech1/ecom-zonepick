@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile-details-info.component.scss']
 })
 export class ProfileDetailsInfoComponent implements OnInit {
+
+  @Input() profileDetails:any
 
   constructor(private router:Router) { }
 

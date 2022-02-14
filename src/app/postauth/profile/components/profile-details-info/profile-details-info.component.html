@@ -10,7 +10,7 @@
             <div class="profile-details">
                 <div class="info">
                     <div class="name">
-                        Jessy
+                        {{profileDetails?.name}}
                     </div>
                     <div class="name">
                         <button class="primary-btn" (click)="goToEditProfile()">Edit Profile</button>
@@ -19,10 +19,10 @@
 
                 <div class="info my-3">
                     <div class="name">
-                        100 Followers
+                        {{profileDetails?.email}}
                     </div>
                     <div class="name">
-                        50 Following
+                        {{profileDetails?.phone}}
                     </div>
                 </div>
             </div>

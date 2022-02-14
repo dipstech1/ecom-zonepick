@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToasterService } from 'src/app/core/service/toaster.service';
+import { ProfileService } from '../../api/profile.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -8,9 +9,14 @@ import { ToasterService } from 'src/app/core/service/toaster.service';
 })
 export class EditProfileComponent implements OnInit {
   url: any = '';
-  constructor(private toaster:ToasterService) { }
+  profileDetails:any
+
+  constructor(private toaster:ToasterService,private profileService:ProfileService) { }
 
   ngOnInit(): void {
+    this.profileService.getLoggedInUserProfile().subscribe((r:any)=>{
+      this.profileDetails = r[0];
+    })
   }
   onSelectFile(event: any):any {
     if (event.target.files && event.target.files[0]) {

@@ -5,5 +5,6 @@ export interface IAuth{
 
 export interface ILoginResponse{
     token:string,
-    email:string
+    email:string,
+    userid:string;
 }
