@@ -1,5 +1,5 @@
 <div class="edit-wrapper">
-    <form>
+    <form [formGroup]="profileForm"  novalidate>
         <div class="profile-img d-flex justify-content-center">
             <!-- <img src="../../../../../assets/images/other-product.jpg"/> -->
             <label class="hoverable" for="fileInput">
@@ -15,25 +15,36 @@
             <div class="col-md-6 com-sm-12 my-4">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Name</label>
-                    <input type="email" class="form-control"  placeholder="John Doe">
+                    <input type="text" class="form-control" formControlName="name"  placeholder="John Doe">
+                </div>
+                <div *ngIf="getControl.name.touched && getControl.name?.invalid" class="text-danger">
+                    <div *ngIf="getControl.name.errors?.required">Name is required.</div>
                 </div>
             </div>
             <div class="col-md-6 com-sm-12 my-4">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Phone</label>
-                    <input type="email" class="form-control"  placeholder="">
+                    <input type="text" class="form-control" formControlName="phone"  placeholder="">
+                </div>
+                <div *ngIf="getControl.phone.touched && getControl.phone?.invalid" class="text-danger">
+                    <div *ngIf="getControl.phone.errors?.required">Phone Number is required.</div>
+                    <div *ngIf="getControl.phone.errors?.minlength">Phone Number must be of 10 digits</div>
                 </div>
             </div>
             <div class="col-md-6 com-sm-12 my-4">
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">About me</label>
-                    <input type="email" class="form-control"  placeholder="">
+                    <label for="exampleFormControlInput1">Pin code</label>
+                    <input type="text" class="form-control" formControlName="pincode"  placeholder="">
                 </div>
             </div>
             <div class="col-md-6 com-sm-12 my-4">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="exampleFormControlInput1" formControlName="email" placeholder="name@example.com">
+                </div>
+                <div *ngIf="getControl.email.touched && getControl.email?.invalid" class="text-danger">
+                    <div *ngIf="getControl.email.errors?.required">Email is required.</div>
+                    <div *ngIf="getControl.email.errors?.email">Email seems invalid.</div>
                 </div>
             </div>
            
@@ -43,7 +54,7 @@
                 <button class="btn btn-danger" >Discard</button>
             </div>
             <div>
-                <button class="btn btn-success" >Save</button>
+                <button class="btn btn-success" (click)="onProfileSubmit()">Save</button>
             </div>
         </div>
     </form>

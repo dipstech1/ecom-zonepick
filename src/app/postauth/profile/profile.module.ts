@@ -6,6 +6,7 @@ import { ProfileDetailsComponent } from './container/profile-details/profile-det
 import { ProfileDetailsInfoComponent } from './components/profile-details-info/profile-details-info.component';
 import { EditProfileComponent } from './container/edit-profile/edit-profile.component';
 import { ProfileService } from './api/profile.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { ProfileService } from './api/profile.service';
   ],
   imports: [
     CommonModule,
-    ProfileRoutingModule
+    ProfileRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers:[ProfileService]
 })

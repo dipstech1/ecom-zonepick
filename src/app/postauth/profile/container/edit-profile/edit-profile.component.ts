@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToasterService } from 'src/app/core/service/toaster.service';
 import { ProfileService } from '../../api/profile.service';
 
@@ -9,15 +10,40 @@ import { ProfileService } from '../../api/profile.service';
 })
 export class EditProfileComponent implements OnInit {
   url: any = '';
-  profileDetails:any
+  profileDetails:any;
+  profileForm!:FormGroup;
 
-  constructor(private toaster:ToasterService,private profileService:ProfileService) { }
+  constructor(private toaster:ToasterService,private profileService:ProfileService, 
+    private fb:FormBuilder) { }
 
   ngOnInit(): void {
+   this.getUserDetails()
+  }
+
+  getUserDetails(){
     this.profileService.getLoggedInUserProfile().subscribe((r:any)=>{
       this.profileDetails = r[0];
+      // console.log( this.profileDetails);
+      this.profileFormData()
     })
   }
+
+  profileFormData(){
+    let {email,pincode,name,state,phone} = this.profileDetails;
+    
+    this.profileForm = this.fb.group({
+      name:  [this.profileDetails.name, [Validators.required]],
+      email: [email, [Validators.required, Validators.email]],
+      phone:  [phone, [Validators.required, Validators.minLength(10)]],
+      state:  [state, [Validators.required]],
+      pincode:  [pincode, [Validators.required]],
+    })
+  }
+
+  get getControl() {
+    return this.profileForm.controls;
+  }
+
   onSelectFile(event: any):any {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
@@ -61,6 +87,16 @@ export class EditProfileComponent implements OnInit {
   }
   public delete() {
     this.url = '';
+  }
+
+  onProfileSubmit(){
+    console.log(this.profileForm.value);
+    this.profileService.editProfie(this.profileForm.value).subscribe((res:any)=>{
+      if(res?.acknowledged){
+        this.toaster.showSuccess("Profile Updated Successfully","Update done")
+      }
+      
+    })
   }
 
 }

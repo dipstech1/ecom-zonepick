@@ -7,10 +7,14 @@ import { environment } from "src/environments/environment";
 export class ProfileService{
 
     constructor(private http:HttpClient, private authService:AuthenticationService){}
+    uid = this.authService.getUserId();
 
     getLoggedInUserProfile(){
         // return this.http.get()
-        let uid = this.authService.getUserId();
-        return this.http.get(`https://wb94xm7q2j.execute-api.ap-south-1.amazonaws.com/dev/profile/${uid}`)
+        return this.http.get(`https://wb94xm7q2j.execute-api.ap-south-1.amazonaws.com/dev/profile/${this.uid}`)
+    }
+
+    editProfie(userDetails:any){
+        return this.http.patch(`https://wb94xm7q2j.execute-api.ap-south-1.amazonaws.com/dev/profile/${this.uid}`,userDetails)
     }
 }
