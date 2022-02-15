@@ -11,10 +11,10 @@ export class ProfileService{
 
     getLoggedInUserProfile(){
         // return this.http.get()
-        return this.http.get(`https://wb94xm7q2j.execute-api.ap-south-1.amazonaws.com/dev/profile/${this.uid}`)
+        return this.http.get(`${environment.baseUrl}${environment.apiURL.profile}/${this.uid}`)
     }
 
     editProfie(userDetails:any){
-        return this.http.patch(`https://wb94xm7q2j.execute-api.ap-south-1.amazonaws.com/dev/profile/${this.uid}`,userDetails)
+        return this.http.patch(`${environment.baseUrl}${environment.apiURL.profile}/${this.uid}`,userDetails)
     }
 }

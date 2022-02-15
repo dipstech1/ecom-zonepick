@@ -32,12 +32,13 @@ export class EditProfileComponent implements OnInit {
     let {email,pincode,name,state,phone} = this.profileDetails;
     
     this.profileForm = this.fb.group({
-      name:  [this.profileDetails.name, [Validators.required]],
+      name:  [name, [Validators.required]],
       email: [email, [Validators.required, Validators.email]],
       phone:  [phone, [Validators.required, Validators.minLength(10)]],
       state:  [state, [Validators.required]],
       pincode:  [pincode, [Validators.required]],
     })
+    console.log( this.profileForm);
   }
 
   get getControl() {

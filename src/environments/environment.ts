@@ -13,7 +13,8 @@ export const environment = {
     },
     rent:"products/rent",
     purchase:"products/purchase",
-    findProduct:"products"
+    findProduct:"products",
+    profile:"profile"
   }
 };
 
