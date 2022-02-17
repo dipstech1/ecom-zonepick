@@ -12,6 +12,7 @@ import { ToasterService } from './service/toaster.service';
 import { HttpConfigInterceptor } from './interceptors/http.interceptors';
 import { CacheInterceptor } from './interceptors/caching.interceptor';
 import { ScriptLoaderService } from './service/scriptload.service';
+import { UploadS3Service } from './service/uploads3.service';
 
 
 
@@ -28,6 +29,7 @@ import { ScriptLoaderService } from './service/scriptload.service';
     LoaderService,
     ToasterService,
     ScriptLoaderService,
+    UploadS3Service,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: HttpConfigInterceptor, multi: true },
     // { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },

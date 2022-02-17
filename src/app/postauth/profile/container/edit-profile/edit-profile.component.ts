@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToasterService } from 'src/app/core/service/toaster.service';
+import { UploadS3Service } from 'src/app/core/service/uploads3.service';
 import { ProfileService } from '../../api/profile.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class EditProfileComponent implements OnInit {
   profileForm!:FormGroup;
 
   constructor(private toaster:ToasterService,private profileService:ProfileService, 
-    private fb:FormBuilder) { }
+    private fb:FormBuilder, private upload:UploadS3Service) { }
 
   ngOnInit(): void {
    this.getUserDetails()
@@ -63,16 +64,24 @@ export class EditProfileComponent implements OnInit {
         return false;
     }
 
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      // reader.readAsDataURL(event.target.files[0]); // read file as data url
 
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        this.url = event?.target?.result;
-        console.log(this.url);
-        let blobImg = this.DataURIToBlob(this.url);
-        console.log("BLOB", blobImg);
+      // reader.onload = (event) => { // called once readAsDataURL is completed
+      //   this.url = event?.target?.result;
+      //   console.log(this.url);
+      //   let blobImg = this.DataURIToBlob(this.url);
+      //   console.log("BLOB", blobImg);
+      // }
 
-
-      }
+      let file = event.target.files[0];
+      let filePath = 'images/' + Math.random() * 10000000000000000 + '_' + file.name;
+      console.log(file);
+      
+      this.upload.uploadFile(file,filePath).then((r:any)=>{
+        console.log("uploader ",r);
+        this.url = r.Location;
+      }).then((c:any)=>console.log(c)
+      )
     }
   }
   DataURIToBlob(dataURI: string) {
