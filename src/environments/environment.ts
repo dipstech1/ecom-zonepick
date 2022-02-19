@@ -14,7 +14,8 @@ export const environment = {
     rent:"products/rent",
     purchase:"products/purchase",
     findProduct:"products",
-    profile:"profile"
+    profile:"profile",
+    cart:"cart"
   }
 };
 

@@ -10,4 +10,9 @@ export class ProductService{
     getProductById(id:string){
         return this.http.get(`${environment.baseUrl}${environment.apiURL.findProduct}/${id}`)
     }
+
+    addToCart(item:any){
+        return this.http.post(`${environment.baseUrl}${environment.apiURL.cart}`, item)
+
+    }
 }

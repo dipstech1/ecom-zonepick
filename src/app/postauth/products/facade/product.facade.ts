@@ -9,6 +9,9 @@ export class ProductFacade{
 
     getProductById(id:string){
        return this.productServce.getProductById(id);
-       
+    }
+
+    addToCart(item:any){
+        return this.productServce.addToCart(item);
     }
 }
