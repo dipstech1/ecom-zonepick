@@ -9,7 +9,9 @@ const routes: Routes = [
     children:[
       {path:"",loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule)},
       {path:"user-profile",loadChildren:()=>import('./profile/profile.module').then(m=>m.ProfileModule)},
-      {path:"product",loadChildren:()=>import('./products/products.module').then(m=>m.ProductsModule)}
+      {path:"product",loadChildren:()=>import('./products/products.module').then(m=>m.ProductsModule)},
+      {path:"cart",loadChildren:()=>import('./cart/cart.module').then(m=>m.CartModule)}
+
     ]
   }
 ];
