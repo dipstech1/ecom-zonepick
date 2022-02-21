@@ -10,8 +10,10 @@ export class CartService{
         this.userId = this.auth.getUserId();
     }
 
-    getCartData(){
-        
+    getCartData(){ 
         return this.http.get(`${environment.baseUrl}${environment.apiURL.cart}/${this.userId}`)
+    }
+    deleteCartData(id:any){ 
+        return this.http.delete(`${environment.baseUrl}${environment.apiURL.cart}/${id}`)
     }
 }

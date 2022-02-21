@@ -30,6 +30,12 @@ export class CartContainerComponent implements OnInit,OnDestroy {
     })
   }
 
+  removeItem(id:number){
+    this.cartService.deleteCartData(id).subscribe((res:any) => {
+      this.getCartList()
+    })
+  }
+
   ngOnDestroy(): void {
     this.ngSubscribe.next();
     this.ngSubscribe.complete();
