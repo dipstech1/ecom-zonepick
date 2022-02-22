@@ -14,6 +14,6 @@ export class CartService{
         return this.http.get(`${environment.baseUrl}${environment.apiURL.cart}/${this.userId}`)
     }
     deleteCartData(id:any){ 
-        return this.http.delete(`${environment.baseUrl}${environment.apiURL.cart}/${id}`)
+        return this.http.delete(`${environment.baseUrl}${environment.apiURL.cart}/${ this.userId}/${id}`)
     }
 }

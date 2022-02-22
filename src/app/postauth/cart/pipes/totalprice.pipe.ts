@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({  
     name: 'total',  
-    pure: false  
+    pure: true  
 })  
 
 export class TotalPipe implements PipeTransform {  

@@ -47,7 +47,7 @@
         </td>
         <td class="text-right"> 
         <a data-original-title="Save to Wishlist" title="" href="" class="btn btn-light mr-2" data-toggle="tooltip"> <i class="fa fa-heart"></i></a> 
-        <button href="" class="btn btn-light" (click)="removeItem(list?._id)"> Remove</button>
+        <button href="" class="btn btn-light" (click)="removeItem(list?.productId)"> Remove</button>
         </td>
     </tr>
     
@@ -82,10 +82,10 @@
                 </div> <!-- card-body.// -->
             </div>  <!-- card .// -->
             <div class="card">
-                <div class="card-body">
-                        <dl class="dlist-align">
+                <div class="card-body" *ngIf="totalPrice">
+                        <dl class="dlist-align" >
                           <dt>Total price:</dt>
-                          <dd class="text-right">INR 568</dd>
+                          <dd class="text-right">INR {{totalPrice}}</dd>
                         </dl>
                         <dl class="dlist-align">
                           <dt>Discount:</dt>
@@ -93,7 +93,7 @@
                         </dl>
                         <dl class="dlist-align">
                           <dt>Total:</dt>
-                          <dd class="text-right  h5"><strong>Rs.1,650</strong></dd>
+                          <dd class="text-right  h5"><strong>Rs.{{totalPrice}}</strong></dd>
                         </dl>
                         <hr>
                         <p class="text-center mb-3">
