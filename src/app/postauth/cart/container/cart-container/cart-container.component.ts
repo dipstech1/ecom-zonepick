@@ -23,6 +23,7 @@ export class CartContainerComponent implements OnInit,OnDestroy {
   }
 
   getCartList(){
+    this.totalPrice = 0;
     this.cartService.getCartData()
     .pipe(takeUntil(this.ngSubscribe))
     .subscribe((cartData:any)=>{
