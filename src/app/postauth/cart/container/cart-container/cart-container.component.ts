@@ -45,6 +45,15 @@ export class CartContainerComponent implements OnInit,OnDestroy {
     })
   }
 
+  payment(){
+    this.cartService.checkoutProduct(this.purchaseItemData).subscribe((res:any) => {
+      this.cartService.getAllTransactions().subscribe((r:any) => {
+        console.log(r);
+        
+      })
+    })
+  }
+
   ngOnDestroy(): void {
     this.ngSubscribe.next();
     this.ngSubscribe.complete();

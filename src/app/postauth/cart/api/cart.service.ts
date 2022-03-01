@@ -16,4 +16,16 @@ export class CartService{
     deleteCartData(id:any){ 
         return this.http.delete(`${environment.baseUrl}${environment.apiURL.cart}/${ this.userId}/${id}`)
     }
+
+    checkoutProduct(data:any){
+        let checkoutData = {
+            purchasables : data,
+            userid:this.userId
+        }
+        return this.http.post(`${environment.baseUrl}ptransaction`,checkoutData)
+    }
+
+    getAllTransactions(){
+        return this.http.get(`${environment.baseUrl}ptransaction/${ this.userId}`)
+    }
 }
