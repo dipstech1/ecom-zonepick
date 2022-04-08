@@ -47,10 +47,8 @@ export class CartContainerComponent implements OnInit,OnDestroy {
 
   payment(){
     this.cartService.checkoutProduct(this.purchaseItemData).subscribe((res:any) => {
-      this.cartService.getAllTransactions().subscribe((r:any) => {
-        console.log(r);
-        
-      })
+      this.toast.showSuccess("Transaction done","")
+      this.purchaseItemData = [];
     })
   }
 

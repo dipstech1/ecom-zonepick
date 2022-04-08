@@ -10,6 +10,7 @@ const routes: Routes = [
       {path:"",loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule)},
       {path:"user-profile",loadChildren:()=>import('./profile/profile.module').then(m=>m.ProfileModule)},
       {path:"product",loadChildren:()=>import('./products/products.module').then(m=>m.ProductsModule)},
+      {path:"itemlist",loadChildren:()=>import('./user-items-list/user-items-list.module').then(m=>m.UserItemsListModule)},
       {path:"cart",loadChildren:()=>import('./cart/cart.module').then(m=>m.CartModule)}
 
     ]

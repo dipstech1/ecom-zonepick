@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { IRegister } from 'src/app/preauth/model/Register.model';
 
 @Component({
@@ -21,7 +21,8 @@ export class RegisterComponent implements OnInit {
       state:  ['', [Validators.required]],
       pincode:  ['', [Validators.required]],
       password: ['', [Validators.required]],
-      con_password: ['', [Validators.required]]
+      con_password: ['', [Validators.required]],
+      test: new FormControl('')
     })
   }
   get getControl() {
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    let s = this.registerForm.controls.test as FormControl;
     const {name,email,phone,state,pincode,password} = this.registerForm.value as IRegister
     this.regiterEmitter.emit({name,email,phone,state,pincode,password})
   }
